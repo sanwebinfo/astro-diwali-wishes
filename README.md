@@ -4,11 +4,13 @@
 
 Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.
 
+> Happy Diwali Wishes 2023  
+
 ## Features
 
 - astro v3
 - Bootstrap 5
-- Astro Script components
+- Astro Script components (for URLSearchParams to get user input)
 - SEO Meta tags
 - 404 Error Page
 - Responsive
