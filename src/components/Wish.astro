@@ -1,0 +1,120 @@
+---
+
+import Layout from '../layouts/base.astro';
+
+const title = "Happy Diwali Greeting Wishes";
+const description = "Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.";
+
+---
+
+<Layout title={title} {description}>
+<div class="container">
+<div class="row justify-content-center">
+<div class="post-content mb-5 mx-lg-2">
+<div class="pt-5 px-5 pb-4 text-center">
+<br />
+<div id="result"></div>
+<br />
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row justify-content-center post-content">
+<div class="card card-hover mb-5 mx-lg-2 form-card">
+    <div class="card-body pt-5 px-5 pb-4 text-center">
+        <form method="GET" action="create?name=" class="form-inline">
+            <div class="input-group">
+                <input type="text" id="name" name="name" class="form-control" placeholder="your Name" required>
+                <button class="btn btn-info" type="submit">Create</button>
+              </div>
+          </form>
+          <br />
+    </div>
+  </div>
+  <hr>
+</div>
+</div>
+<br />
+</Layout>
+
+<script>
+  import Config from "../config.cjs";
+  import slugify from 'slugify'; 
+
+    const params =  new URLSearchParams(window.location.search);
+    const data_clean = params.get('name') || "Hello World";
+    const seo_title = slugify(data_clean, {
+    replacement: '-',
+    remove: /[$*_+~.()'"!\-:@]+/g,
+    lower: false,
+    strict: false,
+    });
+    const user = encodeURIComponent(seo_title).replace(/%20/g, '-');
+    fetch('https://img.sanweb.info/dw/dw?name=' + user)
+    .then((response) => {
+        console.log(response.status);
+    });
+    const link = document.querySelector('link[rel="canonical"]')
+    ? document.querySelector('link[rel="canonical"]')
+    : document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    link.setAttribute('href', Config.siteURL + '/create?name=' + user);
+    document.head.appendChild(link);
+    const word = user.replace(/[-]/g, ' ');
+    document.title = `${word} - Happy Diwali Greeting Wishes image with Name`;
+    if (user) {
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, '/create?name=' + user);
+            document.getElementById('result').innerHTML =
+                `<div class="justify-content-center alert alert-dark">Generating image...</div>`;
+            setTimeout(() => {
+            document.getElementById('result').innerHTML = `
+                <div class="row justify-content-center">
+                <div class="col-md-7 px-0">
+                <img
+                  class="img-fluid"
+                  style="
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width: 100%;
+                    height: auto;"
+                  src="https://img.sanweb.info/dw/dw?name=${user}"
+                  loading="lazy"
+                  decoding="async"
+                >
+                </div></div><br /><br />
+                <a class="btn btn-success" href="https://download.mskian.com/image/download.php?url=https://img.sanweb.info/dw/dw?name=${user}" title=${user} target="_blank" rel="nofollow noreferrer noopener">📥 Download</a>`
+            }, 1200);
+        }
+    } else {
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, '/create?name=your-name');
+            document.getElementById('result').innerHTML =
+                `<div class="justify-content-center alert alert-dark">Generating image...</div>`;
+            setTimeout(() => {
+            document.getElementById('result').innerHTML = `
+                <div class="row justify-content-center">
+                <div class="col-md-7 px-0">
+                <img
+                  class="img-fluid"
+                  style="
+                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width: 100%;
+                    height: auto;"
+                  src="https://img.sanweb.info/dw/dw?name=your-name"
+                  loading="lazy"
+                  decoding="async"
+                >
+                </div></div><br /><br />
+                <a class="btn btn-success" href="https://download.mskian.com/image/download.php?url=https://img.sanweb.info/dw/dw?name=${user}" title=${user} target="_blank" rel="nofollow noreferrer noopener">📥 Download</a>`
+            }, 1200);
+        }
+    }
+</script>

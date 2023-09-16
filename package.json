@@ -1,0 +1,18 @@
+{
+  "name": "astro-diwali-wishes",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "astro sync"
+  },
+  "devDependencies": {
+    "astro": "3.0.12"
+  },
+  "dependencies": {
+    "slugify": "^1.6.6"
+  }
+}

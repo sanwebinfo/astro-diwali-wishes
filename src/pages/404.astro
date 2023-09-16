@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/base.astro';
+
+export interface Props {
+    title: string;
+    description: string;
+}
+
+const title = "404 Not Found";
+const description = "404 - Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name";
+
+---
+
+<Layout title={title} {description}>
+  <div class="d-flex flex-column justify-content-center bg-skew bg-skew-light overflow-hidden">
+    <div class="container">
+      <div class="row justify-content-lg-center text-center">
+        <div class="col-lg-8">
+            <h1 class="display-4 mb-5 mt-5">{title}</h1>
+            <p class="lead mb-5 post-content">The page you are looking for does not exist.</p>
+            <br />
+            <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

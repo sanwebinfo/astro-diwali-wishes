@@ -1,0 +1,42 @@
+---
+
+import Config from "../../config.cjs";
+
+export interface Props {
+    title: string;
+    description: string;
+}
+const { title, description } = Astro.props;
+
+---
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>{ title || Config.siteTitle }</title>
+<meta name="description" content={ description || Config.siteDescription } />
+<meta name="generator" content={Astro.generator} />
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.weserv.nl">
+<link rel="preconnect" href="https://img.sanweb.info">
+<meta name="theme-color" content="#ffffff" />
+
+<link
+    rel="icon"
+    type="image/png"
+    sizes="196x196"
+    href="/icons/favicon-196.png"
+/>
+<link
+    rel="shortcut icon"
+    type="image/x-icon"
+     href="/icons/favicon.ico"
+/>
+<link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="Diwali" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Diwali" />
+<link rel="manifest" href="/manifest.json" />
