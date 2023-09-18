@@ -22,6 +22,10 @@ Create Happy Diwali 🪔 Greeting Wishes with Name in image.
 - Responsive
 - Color Palette - <https://draculatheme.com/contribute>
 
+## API
+
+- API for Generate the diwali wish image with name - <https://github.com/sanwebinfo/astro-diwali-wishes/tree/main/api>
+
 ## Base theme
 
 Astro Simple Blog theme - <https://github.com/dofbi/astro-simple-blog-theme>
