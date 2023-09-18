@@ -1,0 +1,137 @@
+const express = require('express');
+const {
+    registerFont,
+    createCanvas,
+    loadImage
+} = require('canvas');
+const cors = require('cors');
+const apicache = require("apicache");
+const slugify = require('slugify');
+
+const app = express();
+const port = 4001;
+const cache = apicache.middleware
+app.disable("x-powered-by");
+
+// CORS
+var allowedOrigins = ['http://localhost:3000',
+    'http://localhost:8000',
+    'http://localhost:8000/',
+    'http://localhost:5173',
+];
+app.use(cors({
+    origin: function(origin, callback) {
+        // allow requests with no origin 
+        // (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}));
+
+function limit (string = '', limit = 0) {  
+    return string.substring(0, limit)
+  }
+
+app.listen(port, function() {
+    console.log('listening on port ' + port);
+});
+
+registerFont('./fonts/mukta-malar-v12-latin-700.ttf', {
+    family: 'Mukta Malar'
+})
+
+app.get('/', cache('1 hour'), function(req, res) {
+    res.header('X-Frame-Options', 'DENY');
+    res.header('X-XSS-Protection', '1; mode=block');
+    res.header('X-Content-Type-Options', 'nosniff');
+    res.header('Strict-Transport-Security', 'max-age=63072000');
+    res.json('Images API');
+});
+
+
+app.get('/dw/:dw', cache('1 hour'), (req, res) => {
+    res.header('X-Frame-Options', 'DENY');
+    res.header('X-XSS-Protection', '1; mode=block');
+    res.header('X-Content-Type-Options', 'nosniff');
+    res.header('Strict-Transport-Security', 'max-age=63072000');
+
+    // Define the canvas
+    const width = 1080 // width of the image
+    const height = 1080 // height of the image
+    const canvas = createCanvas(width, height)
+    const context = canvas.getContext('2d')
+
+    // Define the font style
+    context.textAlign = 'center'
+    context.textBaseline = 'top'
+    context.fillStyle = '#341f97'
+    context.font = "32px 'Mukta Malar' bold";
+
+    const username = req.query.name || "Generating";
+    const firstletter = username.charAt(0).toUpperCase() + username.slice(1)
+    const greeting = limit(firstletter, 33)
+    const firstname = slugify(greeting, {
+        replacement: ' ',
+        remove: /[*+~.()'"!:@]/g,
+        lower: false,
+        strict: false
+    });
+
+    if (firstname == 0 || firstname == "") {
+        loadImage('./images/diwali.png').then(image => {
+
+            // Draw the background
+            context.drawImage(image, 0, 0, 1080, 1080);
+
+            // Draw the text
+            context.fillText("Your Name", 536, 259);
+
+            // Convert the Canvas to a buffer
+            const buffer = canvas.toBuffer('image/png')
+
+            // Set and send the response as a PNG
+            res.set({
+                'Content-Type': 'image/png'
+            });
+            res.send(buffer)
+        })
+    } else {
+        loadImage('./images/diwali.png').then(image => {
+
+            // Draw the background
+            context.drawImage(image, 0, 0, 1080, 1080);
+
+            // Draw the text
+            context.fillText(firstname.replace(/[-]/g, ' ', ) || 'Hello World', 536, 259);
+
+            // Convert the Canvas to a buffer
+            const buffer = canvas.toBuffer('image/png')
+
+            // Set and send the response as a PNG
+            res.set({
+                'Content-Type': 'image/png'
+            });
+            res.send(buffer)
+        })
+    }
+});
+
+app.use('/', function(req, res) {
+    res.status(404).json({
+        error: 1,
+        message: 'Page Not Found'
+    });
+});
+
+app.use((err, req, res, next) => {
+    if (!err) return next();
+    return res.status(403).json({
+        error: 1,
+        message: 'Page Not Found'
+    });
+});
