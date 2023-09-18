@@ -2,7 +2,7 @@
 
 import Layout from '../layouts/base.astro';
 
-const title = "Happy Diwali Greeting Wishes";
+const title = "Happy Diwali Wishes Greeting Generator 🪔";
 const description = "Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.";
 
 ---
@@ -63,7 +63,7 @@ const description = "Happy Diwali Greeting Wishes - Create Diwali Greeting Wish 
     link.setAttribute('href', Config.siteURL + '/create?name=' + user);
     document.head.appendChild(link);
     const word = user.replace(/[-]/g, ' ');
-    document.title = `${word} - Happy Diwali Greeting Wishes image with Name`;
+    document.title = `${word} 🪔 Happy Diwali Greeting Wishes image with Name`;
     if (user) {
         if (window.history.replaceState) {
             window.history.replaceState(null, null, '/create?name=' + user);

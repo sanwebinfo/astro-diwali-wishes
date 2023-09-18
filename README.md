@@ -2,9 +2,15 @@
 
 [![build-script](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml) [![cloudflare-pages](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml)  
 
-Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.
+Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.  
+
+## Happy Diwali Greeting Generator 🪔  
 
 > Happy Diwali Wishes 2023  
+
+Create Happy Diwali 🪔 Greeting Wishes with Name in image.  
+
+⚛ Astro JS | 🌩 Cloudflare  
 
 ## Features
 
