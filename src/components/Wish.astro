@@ -66,6 +66,22 @@ const description = "Happy Diwali Greeting Wishes - Create Diwali Greeting Wish 
     document.head.appendChild(link);
     const word = user.replace(/[-]/g, ' ');
     document.title = `${word} 🪔 Happy Diwali Greeting Wishes image with Name`;
+    const imageUrlToBase64 = async (url) => {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return new Promise((onSuccess, onError) => {
+        try {
+          const reader = new FileReader();
+          reader.onload = function () {
+          onSuccess(this.result);
+        };
+          reader.readAsDataURL(blob);
+        } catch (e) {
+           onError(e);
+        }
+     });
+    };
+    const data_image = await imageUrlToBase64(`https://img.sanweb.info/dw/dw?name=${user}`)
     if (user) {
         if (window.history.replaceState) {
             window.history.replaceState(null, null, '/create?name=' + user);
@@ -76,18 +92,13 @@ const description = "Happy Diwali Greeting Wishes - Create Diwali Greeting Wish 
                 <div class="row justify-content-center">
                 <div class="col-md-7 px-0">
                 <img
-                  class="img-fluid easeload"
-                  style="
-                    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==');
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
-                    width: 100%;
-                    height: auto;"
-                  onload="this.style.opacity=1"
-                  src="https://img.sanweb.info/dw/dw?name=${user}"
+                  src="${data_image}"
+                  class="img-fluid mx-auto d-block"
+                  width="850"
+                  height="850"
                   loading="lazy"
                   decoding="async"
+                  style="border: 1px double purple; margin-top: 1px"
                 >
                 </div></div><br /><br />
                 <a class="btn btn-success" href="https://img.sanweb.info/dl/file?url=https://img.sanweb.info/dw/dw?name=${user}" title=${user} target="_blank" rel="nofollow noreferrer noopener">📥 Download</a>`
