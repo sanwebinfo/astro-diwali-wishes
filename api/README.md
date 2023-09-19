@@ -21,6 +21,9 @@ yarn dev
 ## Localhost server
 http://localhost:4001/dw/dw?name=happy-diwali
 
+## Download image
+http://localhost:4001/dl/file?url=http://localhost:4001/dw/dw?name=happy-diwali
+
 ## Production
 yarn start
 

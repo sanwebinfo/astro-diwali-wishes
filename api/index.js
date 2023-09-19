@@ -6,6 +6,7 @@ const {
 } = require('canvas');
 const cors = require('cors');
 const apicache = require("apicache");
+const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 const app = express();
@@ -36,6 +37,15 @@ app.use(cors({
 function limit (string = '', limit = 0) {  
     return string.substring(0, limit)
   }
+
+function isValidHttpUrl(string) {
+    try {
+      const newUrl = new URL(string);
+      return newUrl.protocol === 'http:' || newUrl.protocol === 'https:';
+    } catch (err) {
+      return false;
+    }
+}
 
 app.listen(port, function() {
     console.log('listening on port ' + port);
@@ -118,6 +128,41 @@ app.get('/dw/:dw', cache('1 hour'), (req, res) => {
             });
             res.send(buffer)
         })
+    }
+});
+
+app.get("/dl/:file", cache('1 hour'), async (req, res) => {
+
+    res.header("X-Frame-Options", "DENY");
+    res.header("X-XSS-Protection", "1; mode=block");
+    res.header("X-Content-Type-Options", "nosniff");
+    res.header("Strict-Transport-Security", "max-age=63072000");
+
+    const url = req.query.url;
+    const imageURL = url;
+    const random_id = Math.floor(1000 + Math.random() * 9000);
+    const basename = "image-dl-" + random_id;
+  
+    if (isValidHttpUrl(url) == true) {
+      const response = await fetch(imageURL);
+      const contentType = response.headers.get("Content-Type");
+      if (contentType == "image/png") {
+        res.writeHead(200, {
+          "Content-Disposition": `attachment; filename="${basename}.png"`,
+          "content-type": "image/png",
+        });
+        return response.body.pipe(res);
+      } else {
+        res.status(200).json({
+          error: 1,
+          message: "Not a vaid image type",
+        });
+      }
+    } else {
+      res.status(200).json({
+        error: 1,
+        message: "image URL Not Found",
+      });
     }
 });
 
