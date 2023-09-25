@@ -16,7 +16,7 @@
     "canvas": "^2.11.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "node-fetch": "2.7.0",
+    "node-fetch": "3.3.2",
     "slugify": "^1.6.6"
   },
   "devDependencies": {
