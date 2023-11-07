@@ -24,7 +24,9 @@ Create Happy Diwali 🪔 Greeting Wishes with Name in image.
 
 ## API
 
-- API for Generate the diwali wish image with name - <https://github.com/sanwebinfo/astro-diwali-wishes/tree/main/api>
+- API for Generate the diwali wish image with name - <https://github.com/sanwebinfo/astro-diwali-wishes/tree/main/api>  
+
+> May this Diwali bring prosperity, wealth, and success to you and your family.  
 
 ## Base theme
 
