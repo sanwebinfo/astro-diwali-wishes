@@ -23,3 +23,6 @@ package-lock.json
 # Starting with Astro 2.0, Astro generates .astro directories for "content
 # collections", which the doc advised to ignore
 .astro
+
+# Local Netlify folder
+.netlify

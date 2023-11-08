@@ -15,12 +15,19 @@ const { title, description } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>{ title || Config.siteTitle }</title>
 <meta name="description" content={ description || Config.siteDescription } />
+<meta property="og:title" content={ title || Config.siteTitle } />
+<meta property="og:description" content={ description || Config.siteDescription }>
+<meta property="og:type" content="image/png" />
+<meta property="og:image" content="https://img.sanweb.info/dw/dw?name=your-name" />
+<meta property="og:image:alt" content="Happy Diwali Greetings">
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="1080" />
 <meta name="generator" content={Astro.generator} />
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://img.sanweb.info">
-<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#222f3e" />
 
 <link
     rel="icon"

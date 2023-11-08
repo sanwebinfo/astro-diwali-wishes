@@ -1,4 +1,4 @@
-name: cloudflare-pages
+name: netlify-deploy
 
 on:
   push:
@@ -28,9 +28,10 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: yarn install
       - run: yarn build
-      - name: Deploy
-        uses: cloudflare/wrangler-action@v3.3.2
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=diwaliwish --commit-dirty=true
+      - name: Deploy to Netlify
+        run: |
+         npm install netlify-cli -g
+         netlify deploy --prod --dir=dist
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

@@ -68,6 +68,17 @@ link.setAttribute("href", Config.siteURL + "/create?name=" + user);
 document.head.appendChild(link);
 const word = user.replace(/[-]/g, " ");
 document.title = `${decodeURIComponent(word)} 🪔 Sending you the Happy Diwali Greeting Wishes`;
+document
+    .getElementsByTagName('meta')
+    .namedItem('description')
+    .setAttribute(
+        'content',
+        `${decodeURIComponent(word)} Sending you the Happy Diwali Wishes - May this Diwali bring prosperity, wealth, and success to you and your family.`
+    );
+document.querySelectorAll('meta[property=og\\:title]')[0].setAttribute('content', `${decodeURIComponent(word)} 🪔 Sending you the Happy Diwali Greeting Wishes`);
+document.querySelectorAll('meta[property=og\\:description]')[0].setAttribute('content', `${decodeURIComponent(word)} Sending you the Happy Diwali Wishes - May this Diwali bring prosperity, wealth, and success to you and your family.`);
+document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', `https://img.sanweb.info/dw/dw?name=${user}`);
+document.querySelectorAll('meta[property=og\\:image\\:alt]')[0].setAttribute('content', `${word}`);
 window.addEventListener("DOMContentLoaded", (event) => {
 const clipboardBtn = document.getElementById("clipboardButton");
 if (clipboardBtn) {

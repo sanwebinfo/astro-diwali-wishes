@@ -1,0 +1,5 @@
+# Netlify redirects file, edit with your domain
+# https://www.netlify.com/docs/redirects/
+
+https://diwalisite.netlify.app/* https://diwali.sanweb.info/:splat 301!
+http://diwalisite.netlify.app/* https://diwali.sanweb.info/:splat 301!

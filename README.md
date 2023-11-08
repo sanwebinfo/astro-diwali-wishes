@@ -1,6 +1,6 @@
 # Astro Diwali Wishes
 
-[![build-script](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml) [![cloudflare-pages](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml)  
+[![build-script](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/build.yml) [![netlify-deploy](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanwebinfo/astro-diwali-wishes/actions/workflows/deploy.yml)  
 
 Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.  
 
