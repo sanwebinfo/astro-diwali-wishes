@@ -10,7 +10,7 @@ Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.
 
 Create Happy Diwali 🪔 Greeting Wishes with Name in image.  
 
-⚛ Astro JS | 🌩 Cloudflare  
+⚛ Astro JS | 🌩 Netlify  
 
 ## Features
 
