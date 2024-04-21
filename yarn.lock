@@ -669,6 +669,11 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
+"@types/cookie@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.5.4.tgz#7e70a20cd695bc48d46b08c2505874cd68b760e0"
+  integrity sha512-7z/eR6O859gyWIAjuvBWFzNURmf2oPBmJlfVWkwehU5nzIyjwBsTh7WMmEEV4JFnHuQ3ex4oyTvfKzcyJVDBNA==
+
 "@types/debug@^4.0.0":
   version "4.1.8"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.8.tgz#cef723a5d0a90990313faec2d1e22aee5eecb317"
@@ -788,10 +793,10 @@ array-iterate@^2.0.0:
   resolved "https://registry.yarnpkg.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro@4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.6.1.tgz#e5512987f794a50dba70725ceaecdd7761d332eb"
-  integrity sha512-gcL22NEhuRi4wu9/x5Kn2eJf7nT6GeU5BxdN6AHbUnX6UzEDIWtpgHs5lBIZYExKbHKN9PjEGXWQzQtFwLU+5g==
+astro@4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.6.3.tgz#6f64687a5317e8ada834ce7d620bc552ee87b25b"
+  integrity sha512-p2zs1Gac+ysdc/yFCoc8pOXTZE5L9foAtmqUzUVL22WX68bYTRovd03GRs7J1MDpwzsl9kJtlK20ROpjyIFpNw==
   dependencies:
     "@astrojs/compiler" "^2.7.1"
     "@astrojs/internal-helpers" "0.4.0"
@@ -804,6 +809,7 @@ astro@4.6.1:
     "@babel/traverse" "^7.23.3"
     "@babel/types" "^7.23.3"
     "@types/babel__core" "^7.20.4"
+    "@types/cookie" "^0.5.4"
     acorn "^8.11.2"
     aria-query "^5.3.0"
     axobject-query "^4.0.0"
