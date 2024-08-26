@@ -6,7 +6,7 @@ Happy Diwali Greeting Wishes - Create Diwali Greeting Wish image with your Name.
 
 ## Happy Diwali Greeting Generator 🪔  
 
-> Happy Diwali Wishes 2023  
+> Happy Diwali Wishes 2024  
 
 Create Happy Diwali 🪔 Greeting Wishes with Name in image.  
 
